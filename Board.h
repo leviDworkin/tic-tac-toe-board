@@ -1,8 +1,10 @@
 #pragma once
 #include <iostream>
 using namespace std;
+#include"IllegalCoordinateException.h"
+#include "IllegalCharException.h"
 #include "Slot.h"
-#include<vector>
+#include "Coordinate.h"
 #include<string>
 
 class Board{
@@ -16,7 +18,7 @@ class Board{
     ~Board();
     //Methods
     friend std::ostream& operator<< (std::ostream& o, Board const& b);
-    Slot& operator[](const vector<int>& v);
+    Slot& operator[](const Coordinate& c);
     Board& operator=(const char c);
     Board& operator=(const Board& other);
 };

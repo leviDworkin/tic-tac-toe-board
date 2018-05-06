@@ -1,6 +1,4 @@
 #include "Board.h"
-#include"IllegalCoordinateException.h"
-#include "IllegalCharException.h"
 
 //Constructor and Destructor
 Board::Board(int newSize){
@@ -44,14 +42,12 @@ std::ostream& operator<< (std::ostream& o, Board const& b){
   }
   return o << ans;
 }
-Slot& Board::operator[](const vector<int>& v){
-  if(v[0]>=size || v[1]>=size || v[0]<0 || v[1]<0)
-    throw IllegalCoordinateException(v[0],v[1]);
-  return arr[v[0]][v[1]];
+Slot& Board::operator[](const Coordinate& c){
+  if(c.getX()>=size || c.getY()>=size || c.getX()<0 || c.getY()<0)
+    throw IllegalCoordinateException(c.getX(),c.getY());
+  return arr[c.getX()][c.getY()];
 }
 Board& Board::operator=(const char c){
-  if(c!='X' && c!='O' && c!='.')
-    throw IllegalCharException(c);
   for(int i=0;i<size;i++){
     for(int j=0;j<size;j++){
       arr[i][j].insert(c);
