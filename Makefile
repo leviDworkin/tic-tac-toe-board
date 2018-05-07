@@ -1,17 +1,24 @@
+# A generic makefile for running single-file C++ projects.
+#
+# AUTHOR: Erel Segal-Halevi
 
-a.out: main.o Board.o IllegalCharException.o IllegalCoordinateException.o Slot.o Coordinate.o
-	clang++-5.0 -std=c++17 main.o Board.o IllegalCoordinateException.o IllegalCharException.o Slot.o Coordinate.o -o a.out
-main.o: main.cpp
-	clang++-5.0 -std=c++17 -c main.cpp
-Coordinate.o: Coordinate.cpp Coordinate.h
-	clang++-5.0 -std=c++17 -c Coordinate.cpp
-Board.o: Board.cpp Board.h
-	clang++-5.0 -std=c++17 -c Board.cpp
-Slot.o: Slot.cpp Slot.h
-	clang++-5.0 -std=c++17 -c Slot.cpp
-IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
-	clang++-5.0 -std=c++17 -c IllegalCharException.cpp
-IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.h
-	clang++-5.0 -std=c++17 -c IllegalCoordinateException.cpp
+CXX=clang++-5.0
+RM=rm -f
+CPPFLAGS=-std=c++17 
+
+ifndef MAIN
+  MAIN=./main.cpp
+endif
+
+MAINEXECUTABLE=$(subst .cpp,,$(MAIN)).exe
+
+SOURCES=$(MAIN)
+
+all: $(MAINEXECUTABLE)
+	$(MAINEXECUTABLE)
+
+$(MAINEXECUTABLE): $(SOURCES) $(HEADERS)
+	$(CXX) $(CPPFLAGS) $(SOURCES) -o $(MAINEXECUTABLE)
+
 clean:
-	rm *.o a.out
+	$(RM) *.exe a.out *.class
