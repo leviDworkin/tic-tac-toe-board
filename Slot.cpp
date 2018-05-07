@@ -22,7 +22,7 @@ Slot& Slot::operator=(const Slot& other){
   c = other.c;
   return *this;
 }
-bool Slot::operator==(char other){
+const bool Slot::operator==(char other){
   if(c==other)
     return true;
   return false;

@@ -14,6 +14,6 @@ class Slot{
     Slot& insert(char newC);
     Slot& operator=(char newC);
     Slot& operator=(const Slot& other);
-    bool operator==(char other);
+    const bool operator==(char other);
     char getChar()const;
 };
