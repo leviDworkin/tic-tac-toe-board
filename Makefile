@@ -1,24 +1,14 @@
-# A generic makefile for running single-file C++ projects.
-#
-# AUTHOR: Erel Segal-Halevi
-
-CXX=clang++-5.0
-RM=rm -f
-CPPFLAGS=-std=c++17 
-
-ifndef MAIN
-  MAIN=./main.cpp
-endif
-
-MAINEXECUTABLE=$(subst .cpp,,$(MAIN)).exe
-
-SOURCES=$(MAIN)
-
-all: $(MAINEXECUTABLE)
-	$(MAINEXECUTABLE)
-
-$(MAINEXECUTABLE): $(SOURCES) $(HEADERS)
-	$(CXX) $(CPPFLAGS) $(SOURCES) -o $(MAINEXECUTABLE)
-
+a.out: Board.o IllegalCharException.o IllegalCoordinateException.o Slot.o Coordinate.o
+	clang++-5.0 -std=c++17 Board.o IllegalCoordinateException.o IllegalCharException.o Slot.o Coordinate.o -o a.out
+Coordinate.o: Coordinate.cpp Coordinate.h
+	clang++-5.0 -std=c++17 -c Coordinate.cpp
+Board.o: Board.cpp Board.h
+	clang++-5.0 -std=c++17 -c Board.cpp
+Slot.o: Slot.cpp Slot.h
+	clang++-5.0 -std=c++17 -c Slot.cpp
+IllegalCharException.o: IllegalCharException.cpp IllegalCharException.h
+	clang++-5.0 -std=c++17 -c IllegalCharException.cpp
+IllegalCoordinateException.o: IllegalCoordinateException.cpp IllegalCoordinateException.h
+	clang++-5.0 -std=c++17 -c IllegalCoordinateException.cpp
 clean:
-	$(RM) *.exe a.out *.class
+	rm *.o a.out
