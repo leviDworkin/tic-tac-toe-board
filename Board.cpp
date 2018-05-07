@@ -27,7 +27,7 @@ Board::Board(const Board& other){
 }
 Board::~Board(){
   for (int i = 0; i < size; i++) {
-    delete arr[i];
+    delete[] arr[i];
   }
   delete arr;
 }
