@@ -29,7 +29,7 @@ Board::~Board(){
   for (int i = 0; i < size; i++) {
     delete[] arr[i];
   }
-  delete arr;
+  delete[] arr;
 }
 //operator overloads
 std::ostream& operator<< (std::ostream& o, Board const& b){
