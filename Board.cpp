@@ -44,7 +44,7 @@ std::ostream& operator<< (std::ostream& o, Board const& b){
 }
 Slot& Board::operator[](const Coordinate& c){
   if(c.getX()>=size || c.getY()>=size || c.getX()<0 || c.getY()<0)
-    throw IllegalCoordinateException(c.getX(),c.getY());
+    throw IllegalCoordinateException(c);
   return arr[c.getX()][c.getY()];
 }
 Board& Board::operator=(const char c){

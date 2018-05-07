@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 using namespace std;
+#include "IllegalCharException.h"
 
 class Slot{
   private:

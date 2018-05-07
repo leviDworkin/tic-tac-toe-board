@@ -1,5 +1,4 @@
 #include "Slot.h"
-#include "IllegalCharException.h"
 
 Slot::Slot(char newC):c(newC){}
 Slot::Slot(const Slot& other):c(other.c){}

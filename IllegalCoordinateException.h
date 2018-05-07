@@ -2,11 +2,12 @@
 #include<string>
 #include<iostream>
 using namespace std;
+#include "Coordinate.h"
 
 class IllegalCoordinateException{
   private:
-    int x,y;
+    Coordinate c;
   public:
-    IllegalCoordinateException(int xVal, int yVal) : x(xVal),y(yVal){}
+    IllegalCoordinateException(Coordinate newC) : c(newC){}
     string theCoordinate() const;
 };

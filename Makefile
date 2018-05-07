@@ -1,8 +1,10 @@
 
-a.out: main.o Board.o IllegalCharException.o IllegalCoordinateException.o Slot.o
-	clang++-5.0 -std=c++17 main.o Board.o IllegalCoordinateException.o IllegalCharException.o Slot.o -o a.out
+a.out: main.o Board.o IllegalCharException.o IllegalCoordinateException.o Slot.o Coordinate.o
+	clang++-5.0 -std=c++17 main.o Board.o IllegalCoordinateException.o IllegalCharException.o Slot.o Coordinate.o -o a.out
 main.o: main.cpp
 	clang++-5.0 -std=c++17 -c main.cpp
+Coordinate.o: Coordinate.cpp Coordinate.h
+	clang++-5.0 -std=c++17 -c Coordinate.cpp
 Board.o: Board.cpp Board.h
 	clang++-5.0 -std=c++17 -c Board.cpp
 Slot.o: Slot.cpp Slot.h
