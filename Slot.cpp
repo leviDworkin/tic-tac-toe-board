@@ -3,7 +3,6 @@
 Slot::Slot(char newC):c(newC){}
 Slot::Slot(const Slot& other):c(other.c){}
 Slot::Slot():c('.'){}
-// Slot::~Slot(){}
 std::ostream& operator<< (std::ostream& o, Slot const& slot){
   return o << slot.c;
 }
@@ -22,6 +21,11 @@ Slot& Slot::operator=(char newC){
 Slot& Slot::operator=(const Slot& other){
   c = other.c;
   return *this;
+}
+bool Slot::operator==(char other){
+  if(c==other)
+    return true;
+  return false;
 }
 char Slot::getChar()const{
   return c;
