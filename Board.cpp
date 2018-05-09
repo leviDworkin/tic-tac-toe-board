@@ -14,7 +14,7 @@ Board::Board(const Board& other){
   for(int i = 0 ; i < size ; i++){
       arr[i] = new Slot[size];
       for (int j = 0; j < size; j++) {
-        arr[i][j] = arr[i][j];
+        arr[i][j].insert(other.arr[i][j].getChar());
       }
   }
 }
