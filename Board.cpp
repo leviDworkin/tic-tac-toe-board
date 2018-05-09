@@ -52,7 +52,7 @@ Board& Board::operator=(const Board& other){
   size = other.size;
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < size; j++) {
-      arr[i][j] = other.arr[i][j];
+      arr[i][j].insert(other.arr[i][j].getChar());
     }
   }
   return *this;
