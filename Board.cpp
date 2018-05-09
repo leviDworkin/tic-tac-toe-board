@@ -11,12 +11,6 @@ Board::Board(int newSize){
 }
 Board::Board(const Board& other){
   size = other.size;
-  if(arr!=NULL){
-    for (int i = 0; i < size; i++) {
-      delete[] arr[i];
-    }
-    delete[] arr;
-  }
   arr = new Slot*[size];
   for(int i = 0 ; i < size ; i++){
       arr[i] = new Slot[size];
