@@ -31,7 +31,8 @@ std::ostream& operator<< (std::ostream& o, Board const& b){
     for(int j=0;j<b.size;j++){
       ans = ans+b.arr[i][j].getChar();
     }
-    ans = ans+"\n";
+    if(i!=b.size-1)
+      ans = ans+"\n";
   }
   return o << ans;
 }
