@@ -3,8 +3,10 @@
 Slot::Slot(char newC):c(newC){}
 Slot::Slot(const Slot& other):c(other.c){}
 Slot::Slot():c('.'){}
-std::ostream& operator<< (std::ostream& o, Slot const& slot){
-  return o << slot.c;
+
+ostream& operator<< (ostream& o, Slot const& slot){
+  o << slot.c;
+  return o;
 }
 Slot& Slot::insert(char newC){
   if(newC!='X' && newC!='O' && newC!='.')

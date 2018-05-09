@@ -10,7 +10,7 @@ class Slot{
     Slot(char newC);
     Slot(const Slot& other);
     Slot();
-    friend std::ostream& operator<< (std::ostream& o, Slot const& slot);
+    friend ostream& operator<< (std::ostream& o, Slot const& slot);
     Slot& insert(char newC);
     Slot& operator=(char newC);
     Slot& operator=(const Slot& other);

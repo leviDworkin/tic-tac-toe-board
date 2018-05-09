@@ -25,15 +25,14 @@ Board::~Board(){
   delete[] arr;
 }
 //operator overloads
-std::ostream& operator<< (std::ostream& o, Board const& b){
-  string ans = "";
+ostream& operator<< (ostream& o, Board const& b){
   for(int i=0;i<b.size;i++){
     for(int j=0;j<b.size;j++){
-      ans = ans+b.arr[i][j].getChar();
+      o << b.arr[i][j];
     }
-    ans = ans+"\n";
+    o << "\n";
   }
-  return o << ans;
+  return o;
 }
 Slot& Board::operator[](const Coordinate& c){
   if(c.getX()>=size || c.getY()>=size || c.getX()<0 || c.getY()<0)
