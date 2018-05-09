@@ -9,7 +9,7 @@ using namespace std;
 
 class Board{
   private:
-    Slot** arr;
+    Slot** arr = NULL;
     int size;
   public:
     //Constructor and Destructor
