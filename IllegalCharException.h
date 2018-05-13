@@ -7,5 +7,7 @@ class IllegalCharException{
     char c;
   public:
     IllegalCharException(char cVal) : c(cVal) {}
-    char theChar() const;
+    char theChar() const{
+      return c;
+    }
 };

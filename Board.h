@@ -19,6 +19,6 @@ class Board{
     //Methods
     friend std::ostream& operator<< (std::ostream& o, Board const& b);
     Slot& operator[](const Coordinate& c);
-    Board& operator=(const char c);
+    Board& operator=(char c);
     Board& operator=(const Board& other);
 };

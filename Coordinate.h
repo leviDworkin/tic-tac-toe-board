@@ -6,8 +6,12 @@ class Coordinate{
   private:
     int x,y;
   public:
-    Coordinate(int newX, int newY);
-    Coordinate(const Coordinate& other);
-    int getX()const;
-    int getY()const;
+    Coordinate(int newX, int newY): x(newX),y(newY) {}
+    Coordinate(const Coordinate& other): x(other.x), y(other.y) {}
+    int getX()const{
+      return x;
+    }
+    int getY()const{
+      return y;
+    }
 };
